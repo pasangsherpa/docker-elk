@@ -25,8 +25,8 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 
   # Create a forwarded port mapping which allows access to a specific port
   # within the machine from a port on the host machine. In the example below,
-  # accessing "localhost:8000" will access port 8000 on the guest machine.
-  config.vm.network "forwarded_port", guest: 8080, host: 8080
+  # accessing "localhost:80" will access port 8080 on the guest machine.
+  config.vm.network "forwarded_port", guest: 8080, host: 80
   config.vm.network "forwarded_port", guest: 5601, host: 5601
   config.vm.network "forwarded_port", guest: 9200, host: 9200
   config.vm.network "forwarded_port", guest: 5000, host: 5000
@@ -43,4 +43,3 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   config.vm.provision "shell", inline: $script
 
 end
-
