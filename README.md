@@ -1,4 +1,4 @@
-# docker-elk
+# elk-stack
 
 > Dockerized ELK stack: Elasticsearch, Logstash and Kibana.
 
@@ -9,8 +9,8 @@
 2. Next, clone the project.
 
 	```
-	$ git@github.com:pasangsherpa/docker-elk.git
-	$ cd docker-elk
+	$ git@github.com:pasangsherpa/elk-stack.git
+	$ cd elk-stack
 	```
 	
 3. Skip this step if you didn't install or don't want to use [Vagrant][6].

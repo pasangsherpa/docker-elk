@@ -15,7 +15,7 @@ logstash:
   links:
     - elasticsearch
 kibana:
-  image: pasangsherpa/docker-kibana
+  image: pasangsherpa/kibana
   volumes:
     - config/kibana:/opt/kibana/config
   ports:
