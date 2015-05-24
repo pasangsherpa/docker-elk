@@ -14,3 +14,11 @@ logstash:
     - "5000:5000"
   links:
     - elasticsearch
+kibana:
+  image: pasangsherpa/docker-kibana
+  volumes:
+    - config/kibana:/opt/kibana/config
+  ports:
+    - "5601:5601"
+  links:
+    - elasticsearch

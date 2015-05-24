@@ -27,7 +27,9 @@
 
 2. [Logstash][3] configuration file can be found under 'config/logstash/conf' folder. This is where you will define logstash inputs, filters and outputs. Default config includes setup for [logstash-forwarder][5].
 
-3. Generate ssl certificate for logstash server. *Note: This step is only required if you decide to use [logstash-forwarder][5].*
+3. [Kibana][4] configuration file can be found under 'config/kibana' folder.
+
+4. Generate ssl certificate for logstash server. *Note: This step is only required if you decide to use [logstash-forwarder][5].*
 	
 	```
 	$ cd config/logstash/tls
@@ -49,6 +51,13 @@
 	```
 	$ docker-compose run logstash -f /etc/logstash/conf.d/logstash.conf
 	```
+
+3. To stop all services
+
+	```
+	$ docker-compose stop
+	```
+	
 
 ## Verify
 1. Go to [http://localhost:9200](http://localhost:9200) to verify elasticsearch is running.
