@@ -1,0 +1,16 @@
+elasticsearch:
+  image: elasticsearch
+  volumes:
+    - config/elasticsearch:/usr/share/elasticsearch/config
+  ports:
+    - "9200:9200"
+    - "9300:9300"
+logstash:
+  image: logstash
+  volumes:
+    - config/logstash/conf:/etc/logstash/conf.d
+    - config/logstash/tls:/etc/pki/tls
+  ports:
+    - "5000:5000"
+  links:
+    - elasticsearch

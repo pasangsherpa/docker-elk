@@ -1,3 +1,3 @@
 # docker-elk
 
-> Dockerized ELK stack: ElasticSearch, Logstash and Kibana.
+> Dockerized ELK stack: Elasticsearch, Logstash and Kibana.
