@@ -2,6 +2,14 @@
 
 > Dockerized ELK stack: Elasticsearch, Logstash and Kibana.
 
+Images used to build the stack:
+
+* [elasticsearch](https://registry.hub.docker.com/_/elasticsearch/)
+* [logstash](https://registry.hub.docker.com/u/library/logstash/)
+* [kibana](https://registry.hub.docker.com/u/pasangsherpa/kibana/)
+
+Checkout [logstash-forwarder image](https://registry.hub.docker.com/u/pasangsherpa/logstash-forwarder/) to setup logstash-forwarder.
+
 ## Installation and Setup
 
 1. First, Install [Docker and Compose][1] **OR** Install [Vagrant][6] and [Virtualbox][7].
