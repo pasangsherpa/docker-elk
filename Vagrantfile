@@ -30,6 +30,11 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   config.vm.network "forwarded_port", guest: 9200, host: 9200
   config.vm.network "forwarded_port", guest: 5000, host: 5000
 
+  # Create a public network, which generally matched to bridged network.
+  # Bridged networks make the machine appear as another physical device on
+  # your network.
+  config.vm.network "public_network"
+
   # This is a hack around the networking slowness in the VM.
   config.vm.provider :virtualbox do |vb|
     vb.customize ['modifyvm', :id, '--natdnshostresolver1', 'on']
