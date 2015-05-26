@@ -1,1 +1,3 @@
 .vagrant
+config/logstash/tls/certs/logstash-forwarder.crt
+config/logstash/tls/private/logstash-forwarder.key

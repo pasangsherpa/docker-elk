@@ -48,16 +48,21 @@ Checkout [logstash-forwarder image](https://registry.hub.docker.com/u/pasangsher
 
 ## Build and run ELK with Compose
 
-1. Build and run [elasticsearch][2] and [kibana][4] container in the background.
+1. Build and run [elasticsearch][2], [logstash][3] and [kibana][4] container.
 
 	```
-	$ docker-compose up elasticsearch kibana -d
+	$ docker-compose up elasticsearch
+	$ docker-compose up kibana
+	$ docker-compose run logstash
 	```
 
-2. Build and run [logstash][3] service.
+2. Build and run logstash container as [logstash][3] executable.
 
 	```
-	$ docker-compose run logstash -f /etc/logstash/conf.d/logstash.conf
+	$ docker-compose run logstash -h
+
+
+	$ docker run logstash -v `pwd`/config:/config -f /config/logstash.conf
 	```
 
 3. To stop all services

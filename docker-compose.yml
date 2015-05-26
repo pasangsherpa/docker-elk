@@ -6,9 +6,9 @@ elasticsearch:
     - "9200:9200"
     - "9300:9300"
 logstash:
-  image: logstash
+  image: pasangsherpa/logstash
   volumes:
-    - config/logstash/conf:/etc/logstash/conf.d
+    - config/logstash/conf:/usr/share/logstash/config
     - config/logstash/tls:/etc/pki/tls
   ports:
     - "5000:5000"
