@@ -54,6 +54,7 @@ Checkout [logstash-forwarder image](https://registry.hub.docker.com/u/pasangsher
 1. Build and run [elasticsearch][2], [logstash][3] and [kibana][4] container.
 
 	```
+	$ docker-compose up -d // Run all service at once (-d flag runs container in daemon mode)
 	$ docker-compose up // Run all service at once
 	
 	// Run one service at a time in background (-d flag runs container in daemon mode)
