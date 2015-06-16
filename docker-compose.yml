@@ -7,6 +7,7 @@ elasticsearch:
     - "9300:9300"
 logstash:
   image: pasangsherpa/logstash
+  command: -f /usr/share/logstash/config/logstash.conf
   volumes:
     - config/logstash/conf:/usr/share/logstash/config
     - config/logstash/tls:/etc/pki/tls

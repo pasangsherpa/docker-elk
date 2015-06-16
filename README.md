@@ -17,7 +17,7 @@ Checkout [logstash-forwarder image](https://registry.hub.docker.com/u/pasangsher
 2. Next, clone the project.
 
 	```
-	$ git@github.com:pasangsherpa/elk-stack.git
+	$ git clone git@github.com:pasangsherpa/elk-stack.git
 	$ cd elk-stack
 	```
 	
@@ -37,32 +37,38 @@ Checkout [logstash-forwarder image](https://registry.hub.docker.com/u/pasangsher
 
 3. [Kibana][4] configuration file can be found under 'config/kibana' folder.
 
-4. Generate ssl certificate for logstash server. *Note: This step is only required if you decide to use [logstash-forwarder][5].*
+4. **[Optional]** Setup logstash-forwarder
+	1. 	Generate ssl certificate for logstash server. *Note: This step is only required if you decide to use [logstash-forwarder][5].*
 	
-	```
-	$ cd config/logstash/tls
+		```
+		$ cd config/logstash/tls
 	
-	# NOTE: replace <logstash_server_fqdn> with your logstash server dns.
-	$ openssl req -subj '/CN=<logstash_server_fqdn>/' -x509 -days 3650 -batch -nodes -newkey rsa:2048 -keyout private/logstash-forwarder.key -out certs/logstash-forwarder.crt
-	```
+		# NOTE: replace <logstash_server_fqdn> with your logstash server dns.
+		$ openssl req -subj '/CN=<logstash_server_fqdn>/' -x509 -days 3650 -batch -nodes -newkey rsa:2048 -keyout private/logstash-forwarder.key -out certs/logstash-forwarder.crt
+		```
+	2. Copy the generated certs from logstash server to 'ssl/certs/logstassh-forwarder.crt' in [logstash-forwarder] [5] server.
+	3. Add the name of the logstash server to logstash-forwarder.conf file in [logstash-forwarder] [5] server.
 
 ## Build and run ELK with Compose
 
 1. Build and run [elasticsearch][2], [logstash][3] and [kibana][4] container.
 
 	```
-	$ docker-compose up elasticsearch
-	$ docker-compose up kibana
-	$ docker-compose run logstash
+	$ docker-compose up // Run all service at once
+	
+	// Run one service at a time in background (-d flag runs container in daemon mode)
+	$ docker-compose up -d elasticsearch
+	$ docker-compose up -d logstash
+	$ docker-compose up -d kibana
+
 	```
 
 2. Build and run logstash container as [logstash][3] executable.
 
 	```
+	// NOTE: docker-compose run command will not expose ports, you need to run docker-compose up logstash first. 
+	// https://github.com/docker/compose/issues/1256#issuecomment-90135857
 	$ docker-compose run logstash -h
-
-
-	$ docker run logstash -v `pwd`/config:/config -f /config/logstash.conf
 	```
 
 3. To stop all services
